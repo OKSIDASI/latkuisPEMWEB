@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHOES. | Air Runner</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #EEEEEE;
+      color: #000000;
+      min-height: 100vh;
+    }
+    .navbar {
+      height: 64px;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8%;
+      border-top: 3px solid #222222;
+      border-bottom: 1px solid #dddddd;
+    }
+    .logo {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: #333333;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: #777777; }
+    .page {
+      min-height: calc(100vh - 64px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 20px;
+      border-bottom: 1px solid #222222;
+    }
+    .product-card {
+      width: min(760px, 100%);
+      min-height: 350px;
+      background: #DDDDDD;
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.10);
+      transition: background-color .3s ease, transform .3s ease;
+    }
+.product-image {
+    width: 48%;
+    min-height: 280px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #DDDDDD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    display: block;
+}
+    .product-card:hover { transform: translateY(-2px); }
+    .product-image {
+      width: 48%;
+      min-height: 280px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #D40022;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .product-info { flex: 1; min-width: 0; }
+    .category {
+      color: #777777;
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(27px, 3vw, 36px);
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #171717;
+    }
+    .description {
+      color: #666666;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .price { font-size: 18px; font-weight: 700; margin-bottom: 18px; }
+    .color-label { font-size: 12px; color: #666666; margin-bottom: 10px; }
+    .color-options { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+    .color-button {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.9);
+      box-shadow: 0 0 0 1px #cccccc;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .color-button:hover { transform: scale(1.12); }
+    .color-button.selected { box-shadow: 0 0 0 2px #333333; }
+    .black { background: #222222; }
+    .blue { background: #3975B9; }
+    .cream { background: #D9C5A5; }
+    .cart-button {
+      width: 100%;
+      background: #000000;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 6px;
+      padding: 14px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color .2s, transform .2s;
+    }
+    .cart-button:hover { background: #444444; }
+    .cart-button:active { transform: scale(.98); }
+    .cart-message { font-size: 12px; color: #333333; margin-top: 10px; min-height: 14px; }
+    @media (max-width: 650px) {
+      .navbar { padding: 0 5%; height: 58px; }
+      .nav-links { gap: 15px; }
+      .nav-links a { font-size: 12px; }
+      .product-card { flex-direction: column; padding: 18px; gap: 22px; }
+      .product-image { width: 100%; min-height: 220px; }
+      .product-info { width: 100%; }
+      .page { padding: 28px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar" id="home">
+    <div class="logo">SHOES.</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main class="page" id="products">
+    <section class="product-card" id="productCard">
+      <div class="product-image" aria-label="Ilustrasi sepatu lari hitam">
+       <div class="product-image" aria-label="Gambar sepatu lari">
+    <img src="pelari kalcer.jpg" alt="Sepatu Air Runner">
+</div>
+      </div>
+
+      <div class="product-info" id="about">
+        <p class="category">RUNNING SHOES</p>
+        <h1>Air Runner</h1>
+        <p class="description">Sepatu ringan dan nyaman untuk digunakan saat berolahraga maupun aktivitas sehari-hari.</p>
+        <p class="price">Rp 899.000</p>
+        <p class="color-label">Pilih warna:</p>
+        <div class="color-options">
+          <button class="color-button black selected" aria-label="Black" title="Black" onclick="ubahWarna('black')"></button>
+          <button class="color-button blue" aria-label="Blue" title="Blue" onclick="ubahWarna('blue')"></button>
+          <button class="color-button cream" aria-label="Cream" title="Cream" onclick="ubahWarna('cream')"></button>
+        </div>
+        <button class="cart-button" onclick="tambahKeranjang()">Add to Cart</button>
+        <p class="cart-message" id="cartMessage"></p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function ubahWarna(warna) {
+      var card = document.getElementById("productCard");
+      var tombolWarna = document.getElementsByClassName("color-button");
+
+      if (warna === "black") {
+        card.style.backgroundColor = "#DDDDDD";
+      } else if (warna === "blue") {
+        card.style.backgroundColor = "#CFE2FF";
+      } else if (warna === "cream") {
+        card.style.backgroundColor = "#F5E6CC";
+      }
+
+      for (var i = 0; i < tombolWarna.length; i++) {
+        tombolWarna[i].classList.remove("selected");
+      }
+      document.querySelector("." + warna).classList.add("selected");
+      document.getElementById("cartMessage").textContent = "";
+    }
+
+    function tambahKeranjang() {
+      document.getElementById("cartMessage").textContent =
+        "Air Runner berhasil ditambahkan ke keranjang!";
+    }
+  </script>
+</body>
+</html>
